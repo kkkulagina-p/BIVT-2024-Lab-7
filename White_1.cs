@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,8 +15,8 @@ namespace Lab_7
             private double _firstJump;
             private double _secondJump;
             private static double _jumpers;
-            private static double _disqualified;
-            private static double _normal;
+            private static int _disqualified;
+            private static int _normal;
             public string Surname
             {
                 get
@@ -36,18 +36,17 @@ namespace Lab_7
             public double FirstJump => _firstJump;
             public double SecondJump => _secondJump;
             public double JumpSum => _firstJump + _secondJump;
-            public double Jumpers => _jumpers;
-            public double Disqualified => _disqualified;
+            public static double Jumpers => _jumpers;
+            public static double Disqualified => _disqualified;
 
             public Participant(string surname, string club)
             {
-                _surname = surname;
                 _surname = surname;
                 _club = club;
                 _firstJump = 0;
                 _secondJump = 0;
             }
-            static Participant()
+            public Participant()
             {
                 _normal = 5;
                 _disqualified = 0;
@@ -78,8 +77,8 @@ namespace Lab_7
             public static void Disqualify(ref Participant[] participants)
             {
                 if (participants == null) return;
-                int[] index = new int[0]; 
-                for (int i = 0;i < participants.Length; i++)
+                int[] index = new int[0];
+                for (int i = 0; i < participants.Length; i++)
                 {
                     if (participants[i].FirstJump >= _normal || participants[i].SecondJump >= _normal)
                     {
@@ -88,18 +87,18 @@ namespace Lab_7
                     else
                     {
                         _disqualified++;
-                        Array.Resize(ref index,index.Length+1);
-                        index[index.Length-1] = i;
+                        Array.Resize(ref index, index.Length + 1);
+                        index[index.Length - 1] = i;
                     }
                 }
                 Participant[] participants1 = new Participant[0];
-                for (int i=0;i < participants.Length; i++)
+                for (int i = 0; i < participants.Length; i++)
                 {
-                    
+
                     if (!index.Contains(i))
                     {
                         Array.Resize(ref participants1, participants1.Length + 1);
-                        participants1[participants1.Length-1] = participants[i];
+                        participants1[participants1.Length - 1] = participants[i];
                     }
                 }
                 participants = participants1;
