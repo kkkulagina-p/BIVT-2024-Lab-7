@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,29 +12,22 @@ namespace Lab_7
         {
             protected string _name;
             protected string _surname;
-            public string Surname
-            {
-                get
-                {
-                    if (_surname == null) return default;
-                    return _surname;
-                }
-            }
-            public string Name
-            {
-                get
-                {
-                    if (_name == null) return default;
-                    return _name;
-                }
-            }
+            public string Surname => _surname;
+
+                    
+            public string Name => _name;
+
             public Human(string name, string surname)
             {
                 _name = name;
                 _surname = surname;
             }
+            public void Print()
+            {
+                Console.WriteLine($"{_name} {_surname}");
+            }
         }
-        public class Participant:Human
+        public class Participant : Human
         {
             private static int _count;
             private double[] _scores;
@@ -62,7 +55,7 @@ namespace Lab_7
             {
                 _count = 0;
             }
-            public Participant(string name, string surname): base(name, surname)
+            public Participant(string name, string surname) : base(name, surname)
             {
                 _scores = new double[0];
             }
