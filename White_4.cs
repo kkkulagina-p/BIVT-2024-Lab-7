@@ -14,7 +14,7 @@ namespace Lab_7
             protected string _surname;
             public string Surname => _surname;
 
-                    
+
             public string Name => _name;
 
             public Human(string name, string surname)
@@ -58,6 +58,7 @@ namespace Lab_7
             public Participant(string name, string surname) : base(name, surname)
             {
                 _scores = new double[0];
+                _count++;
             }
 
             public void PlayMatch(double result)
