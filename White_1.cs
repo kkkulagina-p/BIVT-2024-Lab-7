@@ -14,9 +14,9 @@ namespace Lab_7
             private string _club;
             private double _firstJump;
             private double _secondJump;
-            private static double _jumpers;
+            private static int _jumpers;
             private static int _disqualified;
-            private static int _normal;
+            private static double _normal;
             public string Surname
             {
                 get
@@ -36,8 +36,8 @@ namespace Lab_7
             public double FirstJump => _firstJump;
             public double SecondJump => _secondJump;
             public double JumpSum => _firstJump + _secondJump;
-            public static double Jumpers => _jumpers;
-            public static double Disqualified => _disqualified;
+            public static int Jumpers => _jumpers;
+            public static int Disqualified => _disqualified;
 
             public Participant(string surname, string club)
             {
@@ -45,6 +45,7 @@ namespace Lab_7
                 _club = club;
                 _firstJump = 0;
                 _secondJump = 0;
+                _jumpers++;
             }
             public Participant()
             {
