@@ -47,7 +47,7 @@ namespace Lab_7
                 _secondJump = 0;
                 _jumpers++;
             }
-            public Participant()
+            static Participant()
             {
                 _normal = 5;
                 _disqualified = 0;
@@ -78,6 +78,7 @@ namespace Lab_7
             public static void Disqualify(ref Participant[] participants)
             {
                 if (participants == null) return;
+                _jumpers = 0;
                 int[] index = new int[0];
                 for (int i = 0; i < participants.Length; i++)
                 {
