@@ -82,7 +82,7 @@ namespace Lab_7
                 int[] index = new int[0];
                 for (int i = 0; i < participants.Length; i++)
                 {
-                    if (participants[i].FirstJump >= _normal || participants[i].SecondJump >= _normal)
+                    if (participants[i].FirstJump >= _normal && participants[i].SecondJump >= _normal)
                     {
                         _jumpers++;
                     }
